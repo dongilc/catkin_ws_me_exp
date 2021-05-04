@@ -1,0 +1,8 @@
+prefix=/home/odroid/workspace/catkin_ws_me_exp/install
+
+Name: me_exp_2021
+Description: Description of me_exp_2021
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib -lme_exp_2021
+Requires: joy roscpp std_msgs vesc_msgs

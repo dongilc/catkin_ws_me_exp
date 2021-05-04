@@ -1,0 +1,14 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+  <arg name="node_name" default="openrobot_vesc_driver_node" />
+
+  <!-- OpenRobot VESC driver parameters -->
+  <arg name="port" default="/dev/ttyACM0" />
+
+  <!-- OpenRobot VESC driver node -->
+  <node pkg="openrobot_vesc_driver" type="openrobot_vesc_driver_node" name="$(arg node_name)"
+        output="screen" launch-prefix="$(arg launch_prefix)" >
+    <param name="port" value="$(arg port)" />
+  </node>
+
+</launch>

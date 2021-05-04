@@ -54,7 +54,7 @@ typedef enum {
 
 // Uncomment this only when you want to see the below infomations.
 //#define PRINT_SENSOR_CORE
-#define PRINT_SENSOR_CUSTOMS
+//#define PRINT_SENSOR_CUSTOMS
 
 // sub
 float Method = 2;
@@ -62,16 +62,16 @@ float position_x = 180+150;
 float position_y = 0;
 float th1 = 0;
 float th2 = 0;
-float init_vel = 1000;
+float init_vel = 500;
 float init_accel = 2000;
 float max_vel = 0;
 float ex_max_vel = 0;
 float max_accel = 0;
 float ex_max_accel = 0;
 float value_traj_0 = 0;
-float value_traj_offset_0 = -171.5;
+float value_traj_offset_0 = 0;//-171.5;
 float value_traj_1 = 0;
-float value_traj_offset_1 = -248;
+float value_traj_offset_1 = 0;//-248;
 // 0 :: offset = 0, 360deg = 9720, + = CCW, range 0~180;
 // 1 :: offset = 0, 360deg = 2880, + = CW, range = +-150;
 float L1 = 180;
@@ -253,7 +253,7 @@ void TeleopVesc::setCustomOut()
 {
 	int num_of_id = 0;
 	int can_forw = 0;
-
+	
 	// Clear Custom Message
 	custom_tx_msg.id_set.clear();
 	custom_tx_msg.can_forward_set.clear();
@@ -354,7 +354,7 @@ int main(int argc, char **argv)
 
   // set VESC can id here
   teleop_vesc[0]->controller_id[0] = TARGET_VESC_ID;
-  teleop_vesc[0]->controller_id[1] = 69;
+  teleop_vesc[0]->controller_id[1] = 84;//69;
 
   bool send_param_flag = false;
   bool send_data_flag = false;
@@ -389,7 +389,7 @@ int main(int argc, char **argv)
 			teleop_vesc[0]->custom_cmd_type[1] = COMM_SET_DPS_AMAX;//COMM_SET_RELEASE;COMM_SET_DPS;COMM_SET_DUTY;COMM_SET_SERVO;COMM_SET_TRAJ
   			teleop_vesc[0]->custom_cmd_value[1] = init_accel;
   			teleop_vesc[0]->setCustomOut();
-			//ROS_INFO("cnt_lp == 10 : AMAX");
+			ROS_INFO("cnt_lp == 10 : AMAX");
 		}
 */
 		else if(cnt_lp >= 30 && cnt_lp < 40)
@@ -532,9 +532,9 @@ int main(int argc, char **argv)
 					//ROS_INFO("Method = %f, th1 = %f, th2 = %f, position_x = %f, position_y = %f", Method, th1, th2, position_x, position_y);
 				}
 				
-				teleop_vesc[0]->custom_cmd_type[0] = COMM_SET_TRAJ;
+				teleop_vesc[0]->custom_cmd_type[0] = COMM_SET_SERVO;
 				teleop_vesc[0]->custom_cmd_value[0] = value_traj_0 + value_traj_offset_0;
-				teleop_vesc[0]->custom_cmd_type[1] = COMM_SET_TRAJ;
+				teleop_vesc[0]->custom_cmd_type[1] = COMM_SET_SERVO;
 				teleop_vesc[0]->custom_cmd_value[1] = value_traj_1 + value_traj_offset_1;
 				teleop_vesc[0]->setCustomOut();
 				//ROS_INFO("cnt_lp = %d, %.3f, %.3f", cnt_lp, teleop_vesc[0]->custom_cmd_value[0], teleop_vesc[0]->custom_cmd_value[1]);

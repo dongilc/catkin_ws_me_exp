@@ -1,2 +1,0 @@
-me_exp_2021:openrobot_vesc_rosdriver/openrobot_vesc_driver:openrobot_vesc_rosdriver/openrobot_vesc_msgs
--DCATKIN_DEVEL_PREFIX=/home/odroid/workspace/catkin_ws_me_exp/devel -DCMAKE_INSTALL_PREFIX=/home/odroid/workspace/catkin_ws_me_exp/install -G Unix Makefiles

@@ -1,8 +1,0 @@
-prefix=/home/odroid/workspace/catkin_ws_me_exp/devel
-
-Name: openrobot_vesc_driver
-Description: Description of openrobot_vesc_driver
-Version: 0.0.1
-Cflags: -I/home/odroid/workspace/catkin_ws_me_exp/src/openrobot_vesc_rosdriver/openrobot_vesc_driver/include
-Libs: -L${prefix}/lib 
-Requires: pluginlib roscpp std_msgs openrobot_vesc_msgs serial
